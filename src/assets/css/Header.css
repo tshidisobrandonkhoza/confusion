@@ -22,7 +22,6 @@ a {
   text-decoration: none;
 }
 
-.navbar--brand {
-  width: 5vw;
-  height: auto;
+.hero--section {
+  background-color: #9f9f9f;
 }
