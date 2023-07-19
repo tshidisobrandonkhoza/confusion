@@ -1,66 +1,91 @@
 import React from "react";
+import { Link, useParams } from "react-router-dom";
 //import assets
 import '../assets/css/DishDetails.css'
-import { Card, CardBody, CardTitle, CardText, CardImg} from "reactstrap";
+import {
+    Card, CardBody, CardTitle, CardText, CardImg,
+    BreadcrumbItem,
+    Breadcrumb
+} from "reactstrap";
 
-const dishSelect = (dish) => {
+const dishSelect = (dSelect) => {
+
     return (
         <Card className="col-5 md-5 " >
-            <CardImg src={dish.image} className="menu--card-img"></CardImg>
+            <CardImg src={dSelect.image} className="menu--card-img"></CardImg>
             <CardBody>
-                <CardTitle>{dish.name}</CardTitle>
-                <CardText>{dish.description}</CardText>
+                <CardTitle>{dSelect.name}</CardTitle>
+                <CardText>{dSelect.description}</CardText>
             </CardBody>
         </Card>
     );
 }
 
 function CommentsResults({ theComments }) {
-    const $comm = theComments.map((comm) => {
-        const cdate = comm.date;
-        // let newDate = new Intl.DateTimeFormat('en-US',{year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse({cdate})));
-        return (
-            <React.Fragment>
-                <h5>{comm.author}</h5>
-                <p>{comm.comment}</p>
-                {/* international standard date format */}
-                <p>Ratings: {comm.rating} / Date: {cdate}</p>
-                <hr/>
-            </React.Fragment>
-        );
-    })
+     const $comm = theComments.map((comm) => {
+ 
+    const cdate = comm.date;
+    //         // let newDate = new Intl.DateTimeFormat('en-US',{year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse({cdate})));
+    return (
+        <React.Fragment>
+            <h5>{comm.author}</h5>
+            <p>{comm.comment}</p>
+            {/* international standard date format */}
+            <p>Ratings: {comm.rating} / Date: {cdate}</p>
+            <hr />
+        </React.Fragment>
+    );
+     })
 
     return (
-        <>
-            {$comm}
-        </>
-    );
+     <>
+             {$comm}
+         </>
+     );
 }
 
- 
+
 const DishDetails = (props) => {
+     const { dishId } = useParams();
 
-    if (props.dish) {
-        //  const theC = props.dish.comments;
-        return (
+    const dSelect = props.dish.filter((plate) =>
+        plate.id === parseInt(dishId)
+    )[0];
 
-            <div className="container">
+    const cResults = props.comments.filter((plate) =>
+        plate.dishId ===  parseInt(dishId)
+    );
+    return (
 
-                <div className="row">
-                 {/* card style */}
-                 {dishSelect(props.dish)}
-                    <div className="container col-4 d-inline-block">
-                   <h1>Comments</h1>
-                   <hr/>
-                    <CommentsResults theComments={props.dish.comments}></CommentsResults>
-    
-                    </div> 
-                   
+        <div className="container">
+            <h1>Hello</h1>
+            <div className="row">
+                <Breadcrumb>
+                    <BreadcrumbItem>
+                        <Link to='/menu'>Menu</Link>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem active >Menu
+                    </BreadcrumbItem>
+                </Breadcrumb>
+{/* <div>
+{dSelect}
+</div> */}
+                {
+                    dishSelect(dSelect)
+
+
+                }
+                <div className="container col-4 d-inline-block">
+                    <h1>Comments</h1>
+                    <hr />
+                    <CommentsResults theComments={cResults}  ></CommentsResults>
+ 
                 </div>
-            </div>
 
-        );
-    }
+            </div>
+        </div>
+
+    );
 
 }
 

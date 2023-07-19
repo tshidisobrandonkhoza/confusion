@@ -1,17 +1,24 @@
-import React from "react";
+import { Link } from "react-router-dom";
 //import assets
 import '../assets/css/MenuComponent.css';
-import { Card, CardImg, CardImgOverlay, CardBody, CardTitle, CardText } from "reactstrap";
+import {
+    Card, CardImg, CardImgOverlay, CardTitle,
+    BreadcrumbItem,
+    Breadcrumb
+} from "reactstrap";
 
 
-function RenderMenu({ dish, onClick }) {
+function RenderMenu({ dish  }) {
     return (
 
-        <Card onClick={() => onClick(dish.id)}>
-            <CardImg src={dish.image} className="menu--card-img"></CardImg>
-            <CardImgOverlay src={dish.image} >
-                <CardTitle>{dish.name}</CardTitle>
-            </CardImgOverlay>
+        <Card >
+            <Link to={`/menu/${dish.id}`}>
+                <CardImg src={dish.image} className="menu--card-img"></CardImg>
+                <CardImgOverlay src={dish.image} >
+                    <CardTitle>{dish.name}</CardTitle>
+                </CardImgOverlay>
+            </Link>
+
         </Card>
 
     );
@@ -21,7 +28,7 @@ const Menu = (props) => {
         // start default bootsrap style initializing
         return (
             <div key={dish.id} className="col-12 col-md-5 m-1">
-                <RenderMenu onClick={props.onClick} dish={dish}></RenderMenu>
+                <RenderMenu  dish={dish}></RenderMenu>
             </div>
         )
     });
@@ -29,10 +36,24 @@ const Menu = (props) => {
     return (
         <div className="container" >
             <div className="row">
+          
+                <Breadcrumb>
+                    <BreadcrumbItem>
+                        <Link to='/home'>Home</Link>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem  active>Menu 
+                    </BreadcrumbItem>
+                </Breadcrumb>
+                <div className="col-12">
+                    <h3>Menu</h3>
+                </div>
+            </div>
+            <div className="row">
                 {menu}
             </div>
         </div>
     );
 }
+
 
 export default Menu;
