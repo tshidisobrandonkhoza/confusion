@@ -10,7 +10,7 @@ export const LEADERS = [
     },
     {
       id: 1,
-      name: 'Dhanasekaran Witherspoon',
+      name: 'Dhana Wither',
       image: '/assets/images/alberto.png',
       designation: 'Chief Food Officer',
       abbr: 'CFO',

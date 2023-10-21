@@ -7,7 +7,6 @@ import {
     Breadcrumb
 } from "reactstrap";
 
-
 function RenderMenu({ dish  }) {
     return (
 
@@ -27,8 +26,8 @@ const Menu = (props) => {
     const menu = props.dishes.map((dish) => {
         // start default bootsrap style initializing
         return (
-            <div key={dish.id} className="col-12 col-md-5 m-1">
-                <RenderMenu  dish={dish}></RenderMenu>
+            <div  className="col-12 col-md-5 m-1">
+                <RenderMenu key={dish.id}  dish={dish}></RenderMenu>
             </div>
         )
     });
@@ -36,10 +35,10 @@ const Menu = (props) => {
     return (
         <div className="container" >
             <div className="row">
-          
+        
                 <Breadcrumb>
                     <BreadcrumbItem>
-                        <Link to='/home'>Home</Link>
+                        <Link to='/'>Home</Link>
                     </BreadcrumbItem>
                     <BreadcrumbItem  active>Menu 
                     </BreadcrumbItem>
@@ -54,6 +53,5 @@ const Menu = (props) => {
         </div>
     );
 }
-
 
 export default Menu;

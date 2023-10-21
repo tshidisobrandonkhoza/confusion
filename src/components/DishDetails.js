@@ -22,38 +22,37 @@ const dishSelect = (dSelect) => {
 }
 
 function CommentsResults({ theComments }) {
-     const $comm = theComments.map((comm) => {
- 
-    const cdate = comm.date;
-    //         // let newDate = new Intl.DateTimeFormat('en-US',{year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse({cdate})));
-    return (
-        <React.Fragment>
-            <h5>{comm.author}</h5>
-            <p>{comm.comment}</p>
-            {/* international standard date format */}
-            <p>Ratings: {comm.rating} / Date: {cdate}</p>
-            <hr />
-        </React.Fragment>
-    );
-     })
+    const $comm = theComments.map((comm) => {
+
+        const cdate = comm.date;
+        //         // let newDate = new Intl.DateTimeFormat('en-US',{year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse({cdate})));
+        return (
+            <React.Fragment>
+                <h5>{comm.author}</h5>
+                <p>{comm.comment}</p>
+                {/* international standard date format */}
+                <p>Ratings: {comm.rating} / Date: {cdate}</p>
+                <hr />
+            </React.Fragment>
+        );
+    })
 
     return (
-     <>
-             {$comm}
-         </>
-     );
+        <>
+            {$comm}
+        </>
+    );
 }
 
-
 const DishDetails = (props) => {
-     const { dishId } = useParams();
+    const { dishId } = useParams();
 
     const dSelect = props.dish.filter((plate) =>
         plate.id === parseInt(dishId)
     )[0];
 
     const cResults = props.comments.filter((plate) =>
-        plate.dishId ===  parseInt(dishId)
+        plate.dishId === parseInt(dishId)
     );
     return (
 
@@ -67,7 +66,7 @@ const DishDetails = (props) => {
                     <BreadcrumbItem active >Menu
                     </BreadcrumbItem>
                 </Breadcrumb>
-{/* <div>
+                {/* <div>
 {dSelect}
 </div> */}
                 {
@@ -79,7 +78,7 @@ const DishDetails = (props) => {
                     <h1>Comments</h1>
                     <hr />
                     <CommentsResults theComments={cResults}  ></CommentsResults>
- 
+
                 </div>
 
             </div>

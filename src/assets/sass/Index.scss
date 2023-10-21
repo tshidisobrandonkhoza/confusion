@@ -1,1 +1,23 @@
-@import 'addonMain';
+@import "addonMain";
+
+.mainCover {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  -ms-flex-align: center;
+  justify-content: center;
+}
+
+.hero--section {
+  margin: 10vh;
+  padding: 4vh;
+  border-bottom: 1px solid #c1c1c1;
+  text-align: center;
+  h1 {
+    font-size: 5em;
+  }
+}
+
+.mycardHead {
+  background-color: #219c90;
+}

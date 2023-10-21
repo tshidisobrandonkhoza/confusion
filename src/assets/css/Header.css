@@ -1,5 +1,4 @@
 /*reset styles*/
-
 * {
   color: inherit;
   margin: 0;
@@ -23,10 +22,29 @@ img {
   max-width: 100%;
 }
 
-.hero--section {
-  background-color: #9f9f9f;
+.nav-bar {
+  background-color: #219c90;
+  margin-bottom: 4em;
 }
 
-.nav-link{
-  color:#fff;
+.nav-logo {
+  font-weight: 500;
+  font-size: 2em;
+}
+
+.nav-toggler {
+  border: none;
+}
+
+.nav-togg {
+  overflow: hidden;
+}
+
+.nav-togg-list {
+  margin: 2em auto;
+  width: 90%;
+  overflow: hidden;
+}
+.nav-togg-list li a {
+  color: #fff;
 }

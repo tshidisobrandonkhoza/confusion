@@ -3,15 +3,22 @@ import './assets/css/App.css';
 import { Component } from 'react';
 //import components
 import { BrowserRouter } from 'react-router-dom';
+
+
 import Main from './components/Main';
+
+//const store = ConfigureStore();
 class App extends Component {
+
   render() {
     return (
-      <BrowserRouter>
-        <div className='App'>
-          <Main />
-        </div>
-      </BrowserRouter>
+
+    
+        <BrowserRouter>
+          <div className='App'>
+            <Main />
+          </div>
+        </BrowserRouter> 
     );
   }
 }

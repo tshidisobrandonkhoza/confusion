@@ -1,6 +1,27 @@
-@import 'addonMain';
+@import "addonMain";
+ 
 
-.hero--section{
-background-color: $my-tertiary;
+.nav-bar {
+  background-color: #219c90;
+  margin-bottom: 4em;
+}
+.nav-logo {
+  font-weight: 500;
+  font-size: 2em;
+}
+.nav-toggler {
+  border: none;
+}
 
+.nav-togg {
+  overflow: hidden;
+}
+
+.nav-togg-list {
+  margin: 2em auto;
+  width: 90%;
+  overflow: hidden;
+  li a {
+    color: #fff;
+  }
 }
