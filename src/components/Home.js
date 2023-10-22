@@ -6,7 +6,7 @@ function RenderMenu({ items }) {
     return (
         items.map(dish => {
             return (
-                <Card className="col-4" key={dish.id}>
+                <Card className="col-4 cardMenu" key={dish.id}>
                     {/* <CardImg src={dish.image} className="menu--card-img"></CardImg> */}
                     {/* <CardImgOverlay src={dish.image} > */}
                     <CardImg src={dish.image} className="menu--card-img"></CardImg>

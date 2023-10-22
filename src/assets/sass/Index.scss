@@ -21,3 +21,37 @@
 .mycardHead {
   background-color: #219c90;
 }
+
+.menu--card-img {
+  max-height: 15em;
+  object-fit: cover;
+}
+.submitComment {
+  background: #219c90;
+  width: 10em;
+  padding: 1em;
+  border-radius: 3em;
+  box-shadow: 1px 1px 1px #c1c1c1;
+  font-size: .8em;
+  color: #fff;
+  cursor: pointer;
+}
+
+.contactForm{
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  div{ 
+    margin-top: .2em;
+    display: flex;
+    flex-direction: column;
+  }
+  div.checkbox{ 
+    flex-direction: row;
+    label{
+      margin-left: 1em;
+    }
+  }
+
+
+}

@@ -12,7 +12,7 @@ export function RenderLeader({ leaders }) {
     return (
         <div className='col-sm-12 col-md-6 col-lg-3     inline-block  '>
             <Card className='col-12'  >
-                <CardImg src={leaders.image} className="col-2"></CardImg>
+                <CardImg src={leaders.image} className="col-2 menu--card-img"></CardImg>
                 <CardBody className="">
                     <CardHeader>{leaders.name}</CardHeader>
                     <CardSubtitle>{leaders.designation}</CardSubtitle>
